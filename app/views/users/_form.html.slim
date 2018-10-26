@@ -1,0 +1,31 @@
+= simple_form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  .form-inputs
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :family_name
+    = f.text_field :family_name
+  .field
+    = f.label :mobile_number
+    = f.number_field :mobile_number
+  .field
+    = f.input :blood_group, required: true, wrapper_html: {class: 'col s12 m4'}, collection: User.blood_groups.keys
+  .field
+    = f.label :dob
+    = f.input :dob, label: 'Date of birth', wrapper_html: {class: 'col s12'},
+            input_html: {class: 'datepicker'}, required: true, start_year: 1900, timepicker: false
+  .actions = f.submit
+
+
+  .clearfix

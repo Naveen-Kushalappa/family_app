@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @user.name
+p
+  strong Mobile number:
+  = @user.mobile_number
+p
+  strong Blood group:
+  = @user.blood_group.humanize
+p
+  strong Dob:
+  = @user.dob
+p
+  strong Last name:
+  = @user.last_name
+p
+  strong Family name:
+  = @user.family_name
+
+=> link_to 'Edit', edit_user_path(@user)
+'|
+=< link_to 'Back', users_path
